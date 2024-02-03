@@ -14,7 +14,7 @@ export const mainNavbarItems = [
     {
         id: 1,
         icon: <DnsIcon />,
-        label: 'Ділянки землі',
+        label: 'Документи',
         route: 'database',
     },
     {
