@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';  // Update the import
+import { useState } from 'react';
 import './index.css';
 import App from './App.js';
 import reportWebVitals from './reportWebVitals';
@@ -18,14 +19,14 @@ import { ThemeProvider } from '@mui/material/styles';
 import { dashboardTheme } from './dashboardTheme.js';
 
 const root = document.getElementById('root') || document.createElement('div');
-const rootElement = createRoot(root);  
+const rootElement = createRoot(root); 
 
 rootElement.render(
   <ThemeProvider theme={dashboardTheme}>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="authentication" element={<Authentication />} />
+        <Route path="/" element={<App/>}>
+          <Route path="authentication" element={<Authentication/>} />
           <Route path="database" element={<Database />} />
           <Route path="functions" element={<Functions />} />
           <Route path="hosting" element={<Hosting />} />

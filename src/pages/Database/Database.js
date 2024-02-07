@@ -2,8 +2,17 @@ import React from 'react'
 import Grid from '@mui/material/Grid';
 import lotData from '../../lotData.js';
 import BuyButton from '../../components/common/BuyButton/BuyButton.js'
+import { useNavigate } from 'react-router-dom';
 
 const Database = () => {
+  const navigate = useNavigate();
+  const interval_id = setInterval(() => {
+    if (!localStorage.getItem('user')) {
+      localStorage.removeItem('user');
+      navigate('/authentication');
+      clearInterval(interval_id);
+    }
+  }, 5 * 1000);
     return (
         
         <Grid container spacing={2}>

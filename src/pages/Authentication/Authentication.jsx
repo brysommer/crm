@@ -2,10 +2,10 @@ import { useState } from 'react'
 import './authentication.scss'
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
+import { useNavigate } from 'react-router-dom';
 
-
-const Authentication = () => {
-
+const Authentication = (props) => {
+    const navigate = useNavigate();
     const [error, setError] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -16,7 +16,12 @@ const Authentication = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
+                localStorage.setItem('user', user);
+                setTimeout(() => {
+                    localStorage.removeItem('user');
+                }, 60 * 1000);
                 console.log(user);
+                navigate('/');
             })
             .catch((error) => {
                 setError(true);
