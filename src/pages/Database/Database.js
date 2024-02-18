@@ -1,8 +1,8 @@
 import React from 'react'
 import Grid from '@mui/material/Grid';
 import lotData from '../../lotData.js';
-import BuyButton from '../../components/common/BuyButton/BuyButton.js'
 import { useNavigate } from 'react-router-dom';
+import { Typography, Card, CardContent, CardActions, Button, Container } from '@mui/material';
 
 const Database = () => {
   const navigate = useNavigate();
@@ -14,29 +14,44 @@ const Database = () => {
     }
   }, 5 * 1000);
     return (
-        
+      <Container sx={{
+        mt: '1rem',
+        display: 'flex',
+      }}
+      >
+        <Typography>Перелік доступних ділянокvdvs</Typography>
         <Grid container spacing={2}>
         <Grid item xs={12}>
-          <div style={{ marginLeft: '400px' }}>
             <h2>Перелік доступних ділянок</h2>
-          </div>
         </Grid>
         {lotData.map((lot) => (
           <Grid item key={lot.id} xs={12} sm={6} md={4} lg={3}>
-            <div style={{ marginLeft: '50px' }}>
-              <strong>📊</strong> {lot.area} га, <br />
-              <strong>Ціна:</strong> ₴ {lot.price} <br />
-              <strong>Дохід:</strong> {lot.revenue} <br />
-              <strong>Кадастровий номер:</strong> {lot.cadastral_number} <br />
-              <strong>Область:</strong> {lot.state} <br />
-              <strong>Район:</strong> {lot.region} <br />
-              <strong>🚜 Орендар:</strong> {lot.tenant} <br />
-              <strong>Термін оренди:</strong> {lot.lease_term} years <br />
-              <BuyButton>Придбати</BuyButton>
-            </div>
+            
+            <Card variant='outlined'>
+              <CardContent>
+                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                {lot.state} область {lot.area} га
+                </Typography>
+                <Typography variant="h5" component="div">
+                {lot.price} грн. Дохід: {lot.revenue} %
+                </Typography>
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                {lot.cadastral_number} <br /> {lot.region} район
+                </Typography>
+                <Typography variant="body2">
+                🚜 {lot.tenant}
+                  <br />
+                Оренда на {lot.lease_term} років
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">Купити ділянку</Button>
+              </CardActions>
+            </Card>
           </Grid>
         ))}
       </Grid>
+      </Container>
     );
   };
   

@@ -18,7 +18,7 @@ const Navbar = () => {
           sx={navbarStyles.drawer}
           variant="permanent"
           anchor="left"
-      >
+        >
         <Toolbar />
         <Divider />
         <List>

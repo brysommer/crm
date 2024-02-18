@@ -30,7 +30,7 @@ function App() {
   }, 5 * 1000);
 
   return (
-    <Grid container>
+    <Grid container >
       <Navbar />
       <Header title={title} />
       <Outlet />
