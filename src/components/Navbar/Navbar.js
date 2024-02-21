@@ -12,12 +12,13 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
     const navigate = useNavigate();
+    
 
     return (
         <Drawer
           sx={navbarStyles.drawer}
-          variant="permanent"
-          anchor="left"
+          variant='temporary'
+          anchor="right"
         >
         <Toolbar />
         <Divider />

@@ -3,8 +3,12 @@ import Grid from '@mui/material/Grid';
 import lotData from '../../lotData.js';
 import { useNavigate } from 'react-router-dom';
 import { Typography, Card, CardContent, CardActions, Button, Container } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const Database = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.up('sm'));
   const navigate = useNavigate();
   const interval_id = setInterval(() => {
     if (!localStorage.getItem('user')) {
@@ -15,17 +19,18 @@ const Database = () => {
   }, 5 * 1000);
     return (
       <Container sx={{
-        mt: '1rem',
+        mt: '5rem',
         display: 'flex',
+        
+        ml:   isSmallScreen ? '300px' : '0px',
       }}
       >
-        <Typography>Перелік доступних ділянокvdvs</Typography>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{justifyContent: 'space-between'}}>
         <Grid item xs={12}>
-            <h2>Перелік доступних ділянок</h2>
+            <Typography variant='h5' align='center'>Перелік доступних ділянок</Typography>
         </Grid>
         {lotData.map((lot) => (
-          <Grid item key={lot.id} xs={12} sm={6} md={4} lg={3}>
+          <Grid item key={lot.id} xs={12} sm={6} md={3} lg={3}>
             
             <Card variant='outlined'>
               <CardContent>

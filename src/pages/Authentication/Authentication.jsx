@@ -3,6 +3,7 @@ import './authentication.scss'
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
+import Box from '@mui/material/Box';
 
 const Authentication = (props) => {
     const navigate = useNavigate();
@@ -29,6 +30,7 @@ const Authentication = (props) => {
     }
 
     return (
+        <Box sx={{mt: '5rem'}}>
 
         <div className='login'>
             <form onSubmit={handleLogin}>
@@ -44,7 +46,7 @@ const Authentication = (props) => {
                 {error && <span>Невірний email або пароль!</span>}
             </form>
         </div>
-
+        </Box>
     )
 }
 
