@@ -22,7 +22,7 @@ const Authentication = (props) => {
                     localStorage.removeItem('user');
                 }, 60 * 1000);
                 console.log(user);
-                navigate('/');
+                navigate('/database');
             })
             .catch((error) => {
                 setError(true);

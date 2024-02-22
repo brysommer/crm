@@ -4,12 +4,7 @@ import AnnouncementIcon from '@mui/icons-material/Announcement';
 import LockPersonIcon from '@mui/icons-material/LockPerson';
 
 export const mainNavbarItems = [
-    {
-        id: 0,
-        icon: <PeopleIcon />,
-        label: 'Авторизація',
-        route: 'authentication',
-    },
+   
     {
         id: 1,
         icon: <AnnouncementIcon />,
