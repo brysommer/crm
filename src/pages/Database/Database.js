@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Typography, Card, CardContent, CardActions, Button, Container } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import AgricultureIcon from '@mui/icons-material/Agriculture';
 
 const Database = () => {
   const theme = useTheme();
@@ -44,7 +45,8 @@ const Database = () => {
                 {lot.cadastral_number} <br /> {lot.region} район
                 </Typography>
                 <Typography variant="body2">
-                🚜 {lot.tenant}
+                <AgricultureIcon />  {lot.tenant}
+                 
                   <br />
                 Оренда на {lot.lease_term} років
                 </Typography>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './components/Navbar/Navbar.js';
 import { Outlet } from "react-router-dom";
 import Grid from '@mui/material/Grid';
 import Header from './components/Header/Header.js';
@@ -10,17 +9,7 @@ import ResponsiveDrawer from './components/Navbar/responsiveDrawer.js'
 
 function App() {
   const navigate = useNavigate();
-  const [title, setTitle] = useState(null);
-  const location = useLocation();
   
-  useEffect(() => {
-    const currentRoute = mainNavbarItems.find(item => {
-      const routeName = item.route.startsWith('/') ? item.route : `/${item.route}`;
-      return location.pathname.endsWith(routeName);
-    });
-    const parsedTitle = currentRoute ? currentRoute.label : 'Землекуп';
-    setTitle(parsedTitle);
-  }, [location]);
 
   const interval_id = setInterval(() => {
     if (!localStorage.getItem('user')) {

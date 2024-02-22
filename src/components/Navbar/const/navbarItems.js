@@ -1,8 +1,7 @@
 import PeopleIcon from '@mui/icons-material/People';
-import ImageIcon from '@mui/icons-material/Image';
-import PublicIcon from '@mui/icons-material/Public';
-import SettingsEthernetIcon from '@mui/icons-material/SettingsEthernet';
-import DnsIcon from '@mui/icons-material/Dns';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import AnnouncementIcon from '@mui/icons-material/Announcement';
+import LockPersonIcon from '@mui/icons-material/LockPerson';
 
 export const mainNavbarItems = [
     {
@@ -13,26 +12,20 @@ export const mainNavbarItems = [
     },
     {
         id: 1,
-        icon: <DnsIcon />,
-        label: 'Документи',
+        icon: <AnnouncementIcon />,
+        label: 'Доступні ділянки',
         route: 'database',
     },
     {
         id: 2,
-        icon: <ImageIcon />,
+        icon: <LockPersonIcon />,
         label: 'Переглянути заброньовані ділянки',
         route: 'storage',
     },
     {
         id: 3,
-        icon: <PublicIcon />,
+        icon: <BusinessCenterIcon />,
         label: 'Переглянути придбані ділянки',
         route: 'hosting',
-    },
-    {
-        id: 4,
-        icon: <SettingsEthernetIcon />,
-        label: 'Інструкції для придбання',
-        route: 'functions',
     },
 ]
